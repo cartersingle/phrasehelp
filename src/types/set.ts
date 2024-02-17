@@ -1,7 +1,7 @@
 export type TPhrase = {
   id: string;
   name: string;
-  text: string;
+  text?: string;
 };
 
 export type TSet = {
