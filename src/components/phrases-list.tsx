@@ -14,7 +14,7 @@ export const PhrasesList = ({ phrases }: { phrases: TPhrase[] }) => {
                 <Link to={`./phrase/${phrase.id}`}>Edit</Link>
               </Button>
             </div>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-muted-foreground text-sm line-clamp-2">
               {phrase.text || <span className="italic">None</span>}
             </p>
           </li>

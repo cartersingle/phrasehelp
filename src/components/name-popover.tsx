@@ -12,25 +12,31 @@ import {
 interface TProps {
   icon: LucideIcon;
   placeholder: string;
+  defaultText?: string;
+  resetToNew?: boolean;
+  button?: string;
   onSave: (text: string) => void;
   validator?: (text: string) => boolean;
 }
 
 export const NamePopover = ({
   icon: Icon,
+  defaultText = "",
+  button = "Create",
   placeholder,
+  resetToNew = false,
   onSave,
   validator,
 }: TProps) => {
   const [open, setOpen] = useState(false);
-  const [text, setText] = useState("");
+  const [text, setText] = useState(defaultText);
 
   function handleSave() {
     if (validator) {
       if (!validator(text)) return;
     }
     onSave(text);
-    setText("");
+    setText(resetToNew ? text : "");
     setOpen(false);
   }
 
@@ -48,7 +54,7 @@ export const NamePopover = ({
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
-          <Button onClick={handleSave}>Create</Button>
+          <Button onClick={handleSave}>{button}</Button>
         </div>
       </PopoverContent>
     </Popover>

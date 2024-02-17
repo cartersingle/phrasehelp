@@ -6,6 +6,7 @@ import "./index.css";
 import Home from "./pages/home";
 import Layout from "./pages/layout";
 import Set from "./pages/set";
+import Phrase from "./pages/phrase";
 
 const router = createBrowserRouter([
   {
@@ -16,8 +17,12 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/set/:id",
+        path: "/set/:setId",
         element: <Set />,
+      },
+      {
+        path: "/set/:setId/phrase/:phraseId",
+        element: <Phrase />,
       },
     ],
   },
